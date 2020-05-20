@@ -8,19 +8,19 @@
 
 
 ### Association
-- has_many :tweets
+- has_many :messages
 - has_many :groups, thruogh: group-users
 
 
 
-## tweetsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer| |
 |content|string|null: false|
 |image|string| |
 |user_id|integer|foreign_key: true|
-|tweet_id|integer|foreign_key: true|
+|group_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -37,7 +37,7 @@
 
 
 ### Association
-- has_many	:tweets 
+- has_many	:messages 
 - has_many	:users , through: group-users 
 
 
