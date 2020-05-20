@@ -17,10 +17,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer| |
-|content|string|null: false|
+|content|string| |
 |image|string| |
-|user_id|integer|foreign_key: true|
-|group_id|integer|foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -32,7 +32,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer| |
-|group_name|string|unique: true|
+|name|string|null: false, unique: true|
 
 
 
