@@ -1,3 +1,11 @@
 .wrapper__side-bar
-  .wrapper__side-bar__user-name
+  .wrapper__side-bar__user
+    .wrapper__side-bar__user__content
+      .wrapper__side-bar__user__content__name
+        user
+      .wrapper__side-bar__user__content__edit
+        = link_to "#", class: "wrapper__side-bar__user__content__edit__group" do
+          = icon('far', 'edit', style:'color:#ffffff')     
+        = link_to "##", class: "wrapper__side-bar__user__content__edit__account" do
+          = icon('fas', 'cog', style:'color:#ffffff')                
   .wrapper__side-bar__group-list
