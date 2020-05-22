@@ -106,6 +106,32 @@
     &__content{
       height: calc(100% - 190px);
       background-color: #fafafa;
+      padding: 35px 0 0 40px;
+
+      &__message{
+          padding-bottom: 46px;;
+
+        &__info{
+          display: flex;
+          margin-bottom: 12px;
+
+          &__contributor{
+            color: #333333;
+            font-size: 16px;
+            margin-right: 5px;
+          }
+
+          &__timeline{
+            color: #999999;
+            font-size: 12px;
+          }
+        }
+
+        &__text{
+          color: #434A54;
+          font-size: 14px;
+        }
+      }
     }
     &__message-form{
       height: 90px;
