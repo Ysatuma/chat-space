@@ -58,7 +58,6 @@
         &__first-comment{
           @include set_text(#ffffff,11px);
           padding: 0 20px 40px;
-
         }
       }
     }
@@ -74,7 +73,6 @@
       background-color: #ffffff;
       @include set_boxes_to_horizontal(space-between);
       border-bottom: solid 1px #eeeeee;
-
 
       &__group{
         padding: 35px 0 0 40px;
