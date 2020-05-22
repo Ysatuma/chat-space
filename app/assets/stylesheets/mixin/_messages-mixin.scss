@@ -1,0 +1,19 @@
+@mixin set_box_size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin set_text($color,$size) {
+  color: $color;
+  font-size: $size;
+}
+
+@mixin set_boxes_to_vertex($option) {
+  display: flex;
+  align-items: $option;
+}
+
+@mixin set_boxes_to_horizontal($option) {
+  display: flex;
+  justify-content: $option;
+}

@@ -1,4 +1,5 @@
 .wrapper__side-bar
+  //サイドバー上部、ユーザー名及びエディット部分
   .wrapper__side-bar__user
     .wrapper__side-bar__user__content
       .wrapper__side-bar__user__content__name
@@ -7,13 +8,17 @@
         = link_to "#", class: "wrapper__side-bar__user__content__edit__group" do
           = icon('far', 'edit', style:'color:#ffffff')     
         = link_to "##", class: "wrapper__side-bar__user__content__edit__account" do
-          = icon('fas', 'cog', style:'color:#ffffff')                
+          = icon('fas', 'cog', style:'color:#ffffff')   
+
+  //サイドバー下部、グループリスト
   .wrapper__side-bar__group-list
     .wrapper__side-bar__group-list__group
       .wrapper__side-bar__group-list__group__name
         techcamp
       .wrapper__side-bar__group-list__group__first-comment
         まだメッセージがありません
+
+    .wrapper__side-bar__group-list__group       
       .wrapper__side-bar__group-list__group__name
         ruby_on_rails
       .wrapper__side-bar__group-list__group__first-comment
