@@ -64,8 +64,8 @@
         }
       }
     }
-
   }
+  
   &__chat-main{
     width: calc(100vw - 300px);
 
@@ -73,6 +73,35 @@
       height: 100px;
       background-color: #ffffff;
       border-bottom: solid 1px #eeeeee;
+      display: flex;
+      justify-content: space-between;
+
+      &__group{
+        padding: 35px 0 0 40px;
+
+        &__name{
+          color: #333333;
+          font-size: 20px;
+        }
+
+        &__member{
+          color: #999999;
+          font-size: 12px;
+          margin-top: 15px;
+        }
+      }
+
+      &__edit{
+        width: 72px;
+        height: 40px;
+        border: 1px solid #38aef0;
+        font-size: 16px;
+        margin: 28px 40px 0 0;
+        line-height: 40px;
+        text-align: center;
+        color: #38aef0;
+        text-decoration: none;             
+      }
     }
     &__content{
       height: calc(100% - 190px);
