@@ -1,0 +1,177 @@
+
+@import "../config/messages-config"; //変数格納場所
+@import "../mixin/messages-mixin";   //mixin格納場所
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+  @include set_box_size(100vh,100%);
+  display: flex;
+
+  // 画面左側のサイドバー
+  &__side-bar{
+    width: 300px;
+    
+    //上部ユーザー名及びエディット部分
+    &__user{
+      height: 100px;
+      @include set_boxes_to_vertex(center);
+      background-color: #253141;
+      font-weight: bold;
+
+      &__content{
+        @include set_box_size(20px,260px);
+        @include set_boxes_to_horizontal(space-between);
+        margin: 0 20px;
+        line-height: 20px;
+
+        &__name{
+          @include set_text(#ffffff,16px);
+        }
+
+        &__edit{
+          width: 60px;     
+          @include set_boxes_to_horizontal(flex-end);     
+
+          &__group{
+            color: #ffffff;
+          }
+
+          &__account{
+            color: #ffffff;
+            margin-left: 5px;            
+          }
+        }
+      }
+    }
+
+    //下部グループリスト
+    &__group-list{
+      height: calc(100% - 100px);
+      background-color: #2f3e51;
+
+      &__group{
+        &__name{
+          @include set_text(#ffffff,15px);
+          padding: 20px 20px 5px;
+        }
+
+        &__first-comment{
+          @include set_text(#ffffff,11px);
+          padding: 0 20px 40px;
+        }
+      }
+    }
+  }
+  
+  //右側チャット画面
+  &__chat-main{
+    width: calc(100vw - 300px);
+
+    //上部 グループ名、メンバー概要欄
+    &__top{
+      height: 100px;
+      background-color: #ffffff;
+      @include set_boxes_to_horizontal(space-between);
+      border-bottom: solid 1px #eeeeee;
+
+      &__group{
+        padding: 35px 0 0 40px;
+
+        &__name{
+          @include set_text(#333333,20px);
+        }
+
+        &__member{
+          @include set_text(#999999,12px);
+          margin-top: 15px;
+        }
+      }
+
+      //グループエディットボタン
+      &__edit{
+        @include set_box_size(40px,72px);
+        @include set_text(#38aef0,16px);
+        line-height: 40px;
+        margin: 28px 40px 0 0;
+        border: 1px solid #38aef0;
+        text-align: center;
+        text-decoration: none;             
+      }
+    }
+
+    //中央部 チャット履歴一覧
+    &__content{
+      height: calc(100% - 190px);
+      background-color: #fafafa;
+      padding: 35px 0 0 40px;
+
+      &__message{
+          padding-bottom: 46px;;
+
+        &__info{
+          display: flex;
+          margin-bottom: 12px;
+
+          &__contributor{
+            @include set_text(#333333,16px);
+            font-weight: bold;
+            margin-right: 5px;
+          }
+
+          &__timeline{
+            @include set_text(#999999,12px);
+          }
+        }
+
+        &__text{
+          @include set_text(#434A54,14px);
+        }
+      }
+    }
+    //下部 投稿フォーム
+    &__message-form{
+      height: 90px;
+      background-color: #d2d2d2;
+      @include set_boxes_to_vertex(center);
+
+      &__content{
+        width: 100%;
+        margin: 0 40px;
+
+        &__form{
+          display: flex;
+
+          &__inputs{
+            @include set_box_size(50px,calc(100% - 115px));
+            @include set_boxes_to_vertex(center);
+            position: relative;
+           
+            &__text{
+              @include set_box_size(50px,100%);
+            }
+
+            &__image{
+              font-size: 30px;
+              position: absolute;
+              right: 10px;
+              
+              &__icon{
+                display: none;  //画像入力フォームを非表示にする。
+              }
+            }         
+          }
+        }
+
+        &__send{
+          @include set_box_size(50px,100px);
+          background-color: #38aef0;
+          color: #ffffff;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
