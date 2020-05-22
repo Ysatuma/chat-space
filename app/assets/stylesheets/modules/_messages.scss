@@ -35,9 +35,12 @@
           width: 60px;     
           @include set_boxes_to_horizontal(flex-end);     
 
-          &__group{}
+          &__group{
+            color: #ffffff;
+          }
 
           &__account{
+            color: #ffffff;
             margin-left: 5px;            
           }
         }
