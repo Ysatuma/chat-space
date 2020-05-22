@@ -25,3 +25,12 @@
       .wrapper__chat-main__content__message__text
         Next world!        
   .wrapper__chat-main__message-form
+    .wrapper__chat-main__message-form__content
+      %form{:action => "/", :method => "post", :class => "wrapper__chat-main__message-form__content__form"}
+        .wrapper__chat-main__message-form__content__inputs
+          %input{:name => "text", :class => "wrapper__chat-main__message-form__content__inputs__text"}
+          %label{class: "wrapper__chat-main__message-form__content__inputs__imgbox"}
+            %input{type: "file", :class => "wrapper__chat-main__message-form__content__inputs__imgbox__image"}    
+            = icon('far', 'image')
+                
+        %input{:type => "submit", :class => "wrapper__chat-main__message-form__content__send", :value => "Send"}
