@@ -52,7 +52,12 @@
       height: calc(100% - 100px);
       background-color: #2f3e51;
 
+      &--link{
+        text-decoration: none;
+      }
+
       &__group{
+
         &__name{
           @include set_text(#ffffff,15px);
           padding: 20px 20px 5px;
@@ -75,7 +80,7 @@
       height: 100px;
       background-color: #ffffff;
       @include set_boxes_to_horizontal(space-between);
-      border-bottom: solid 1px #eeeeee;
+      border-bottom: solid 1px #eeeeee;    
 
       &__group{
         padding: 35px 0 0 40px;

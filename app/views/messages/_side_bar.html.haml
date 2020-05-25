@@ -3,23 +3,20 @@
   .wrapper__side-bar__user
     .wrapper__side-bar__user__content
       .wrapper__side-bar__user__content__name
-        = @user.nickname
+        = current_user.nickname
       .wrapper__side-bar__user__content__edit
-        = link_to "#", class: "wrapper__side-bar__user__content__edit__group" do
+        = link_to new_group_path , class: "wrapper__side-bar__user__content__edit__group" do
           = icon('far', 'edit')     
         = link_to edit_user_path(current_user), class: "wrapper__side-bar__user__content__edit__account" do
           = icon('fas', 'cog')   
 
   //サイドバー下部、グループリスト
   .wrapper__side-bar__group-list
-    .wrapper__side-bar__group-list__group
-      .wrapper__side-bar__group-list__group__name
-        techcamp
-      .wrapper__side-bar__group-list__group__first-comment
-        まだメッセージがありません
-
-    .wrapper__side-bar__group-list__group       
-      .wrapper__side-bar__group-list__group__name
-        ruby_on_rails
-      .wrapper__side-bar__group-list__group__first-comment
-        まだメッセージがありません
+    - @groups.each do |group|
+      = link_to group_messages_path(group.id), class:"wrapper__side-bar__group-list--link" do
+        .wrapper__side-bar__group-list__group
+          .wrapper__side-bar__group-list__group__name
+            = group.name
+          .wrapper__side-bar__group-list__group__first-comment
+            まだメッセージがありません  
+    
