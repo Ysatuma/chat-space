@@ -4,10 +4,12 @@
   .wrapper__chat-main__top
     .wrapper__chat-main__top__group
       .wrapper__chat-main__top__group__name
-        techcamp
+        = @group.name
       .wrapper__chat-main__top__group__member
-        Member:USERNAME
-    = link_to "#", class: "wrapper__chat-main__top__edit" do
+        Member:
+        - @group.users.each do |user|          
+          = user.nickname
+    = link_to edit_group_path(current_user.id), class: "wrapper__chat-main__top__edit", method: :get do
       Edit
 
   //中央部 チャット履歴一覧

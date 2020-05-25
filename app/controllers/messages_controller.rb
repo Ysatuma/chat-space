@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
-    # binding.pry
-    @user = User.find(current_user.id)
+    
+    @groups = Group.includes(:users).where(users: {id: current_user})
+    @group = Group.find(params[:group_id])
   end
 end
