@@ -3,11 +3,11 @@
   .wrapper__side-bar__user
     .wrapper__side-bar__user__content
       .wrapper__side-bar__user__content__name
-        USERNAME
+        = @user.nickname
       .wrapper__side-bar__user__content__edit
         = link_to "#", class: "wrapper__side-bar__user__content__edit__group" do
           = icon('far', 'edit')     
-        = link_to "##", class: "wrapper__side-bar__user__content__edit__account" do
+        = link_to edit_user_path(current_user), class: "wrapper__side-bar__user__content__edit__account" do
           = icon('fas', 'cog')   
 
   //サイドバー下部、グループリスト
