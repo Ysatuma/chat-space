@@ -35,10 +35,16 @@
   //下部 投稿フォーム
   .wrapper__chat-main__message-form
     .wrapper__chat-main__message-form__content
-      %form{action: "/", method: "post", class: "wrapper__chat-main__message-form__content__form"}
+      = form_for [@group, @message], html: { class: "wrapper__chat-main__message-form__content__form"}   do |form|
         .wrapper__chat-main__message-form__content__form__inputs
-          %input{name: "text", class: "wrapper__chat-main__message-form__content__form__inputs__text"}
-          %label{class: "wrapper__chat-main__message-form__content__form__inputs__image"}
-            %input{type: "file", class: "wrapper__chat-main__message-form__content__form__inputs__image__icon"}    
-            = icon('far', 'image')                
-        %input{type: "submit", class: "wrapper__chat-main__message-form__content__send", value: "Send"}
+          = form.text_field  :content, class: "wrapper__chat-main__message-form__content__form__inputs__text"
+          = form.label :image, class: "wrapper__chat-main__message-form__content__form__inputs__image" do
+            = form.file_field :image, class: "wrapper__chat-main__message-form__content__form__inputs__image__icon"
+            = icon('far', 'image') 
+        = form.submit 'Send', class: "wrapper__chat-main__message-form__content__form__send"
+
+              
+        -#   %label{class: "wrapper__chat-main__message-form__content__form__inputs__image"}
+        -#     %input{type: "file", name: "image", class: "wrapper__chat-main__message-form__content__form__inputs__image__icon"}    
+        -#     = icon('far', 'image')                
+        -# %input{type: "submit", class: "wrapper__chat-main__message-form__content__send", value: "Send"}
