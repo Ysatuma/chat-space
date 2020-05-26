@@ -153,6 +153,7 @@
             @include set_box_size(50px,calc(100% - 115px));
             @include set_boxes_to_vertex(center);
             position: relative;
+            
            
             &__text{
               @include set_box_size(50px,100%);
@@ -168,14 +169,16 @@
               }
             }         
           }
+          
+          &__send{
+            @include set_box_size(50px,100px);
+            background-color: #38aef0;
+            color: #ffffff;
+            margin-left: 15px;
+          }
         }
 
-        &__send{
-          @include set_box_size(50px,100px);
-          background-color: #38aef0;
-          color: #ffffff;
-          margin-left: 15px;
-        }
+
       }
     }
   }

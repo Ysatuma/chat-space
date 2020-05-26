@@ -9,36 +9,30 @@
         Member:
         - @group.users.each do |user|          
           = user.nickname
-    = link_to edit_group_path(current_user.id), class: "wrapper__chat-main__top__edit", method: :get do
+    = link_to edit_group_path(@group.id), class: "wrapper__chat-main__top__edit", method: :get do
       Edit
 
   //中央部 チャット履歴一覧
   .wrapper__chat-main__content
-    .wrapper__chat-main__content__message
-      .wrapper__chat-main__content__message__info
-        .wrapper__chat-main__content__message__info__contributor
-          USERNAME
-        .wrapper__chat-main__content__message__info__timeline
-          2020-05-22, 1100
-      .wrapper__chat-main__content__message__text
-        Hello world!
-
-    .wrapper__chat-main__content__message
-      .wrapper__chat-main__content__message__info
-        .wrapper__chat-main__content__message__info__contributor
-          USERNAME
-        .wrapper__chat-main__content__message__info__timeline
-          2020-05-22, 1132
-      .wrapper__chat-main__content__message__text
-        Next world!  
+    - @messages.each do |message|
+      .wrapper__chat-main__content__message
+        .wrapper__chat-main__content__message__info
+          .wrapper__chat-main__content__message__info__contributor
+            = message.user.nickname
+          .wrapper__chat-main__content__message__info__timeline
+            = message.created_at
+        .wrapper__chat-main__content__message__text
+          = message.content
+        .wrapper__chat-main__content__message__image
+          = image_tag message.image
 
   //下部 投稿フォーム
   .wrapper__chat-main__message-form
     .wrapper__chat-main__message-form__content
-      %form{action: "/", method: "post", class: "wrapper__chat-main__message-form__content__form"}
+      = form_for [@group, @message], html: { class: "wrapper__chat-main__message-form__content__form"}   do |form|
         .wrapper__chat-main__message-form__content__form__inputs
-          %input{name: "text", class: "wrapper__chat-main__message-form__content__form__inputs__text"}
-          %label{class: "wrapper__chat-main__message-form__content__form__inputs__image"}
-            %input{type: "file", class: "wrapper__chat-main__message-form__content__form__inputs__image__icon"}    
-            = icon('far', 'image')                
-        %input{type: "submit", class: "wrapper__chat-main__message-form__content__send", value: "Send"}
+          = form.text_field  :content, class: "wrapper__chat-main__message-form__content__form__inputs__text"
+          = form.label :image, class: "wrapper__chat-main__message-form__content__form__inputs__image" do
+            = form.file_field :image, class: "wrapper__chat-main__message-form__content__form__inputs__image__icon"
+            = icon('far', 'image') 
+        = form.submit 'Send', class: "wrapper__chat-main__message-form__content__form__send"

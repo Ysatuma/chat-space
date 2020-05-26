@@ -18,5 +18,8 @@
           .wrapper__side-bar__group-list__group__name
             = group.name
           .wrapper__side-bar__group-list__group__first-comment
-            まだメッセージがありません  
-    
+            = group.show_last_message
+            -# -unless group.messages.empty?
+            -#   = group.messages.last[:content]
+            -# - else
+            -#   投稿はまだありません
