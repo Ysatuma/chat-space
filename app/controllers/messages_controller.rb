@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
   before_action :set_group 
-  before_action :set_groups   
-  before_action :set_messages
 
   def index
+    @groups = Group.includes(:users).where(users: {id: current_user}) 
     @message = Message.new
+    @messages = @group.messages.includes(:user)
   end
   
   def create
@@ -28,11 +28,4 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
-  def set_groups
-    @groups = Group.includes(:users).where(users: {id: current_user}) 
-  end 
-
-  def set_messages
-    @messages = @group.messages.includes(:user)
-  end 
 end
