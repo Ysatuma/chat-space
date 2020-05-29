@@ -112,6 +112,7 @@
       height: calc(100% - 190px);
       background-color: #fafafa;
       padding: 35px 0 0 40px;
+      overflow: scroll;
 
       &__message{
           padding-bottom: 46px;;
