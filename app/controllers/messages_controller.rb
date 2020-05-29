@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :move_to_login_menu
   before_action :set_group 
 
   def index
@@ -19,6 +20,10 @@ class MessagesController < ApplicationController
 
 
   private
+
+  def move_to_login_menu
+    redirect_to new_user_session_path unless user_signed_in?
+  end
   
   def message_params
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
