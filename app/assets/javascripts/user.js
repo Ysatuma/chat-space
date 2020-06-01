@@ -6,7 +6,6 @@ $(function(){
                 <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.nickname}">追加</div>
               </div>
               `
-              console.log(html)
    $("#user-search-result").append(html);
   }
 
@@ -33,7 +32,6 @@ $(function(){
       if(users.length !== 0){
         users.forEach(function(user){
           appendUser(user)  
-
         });
       }
       else{
@@ -45,6 +43,36 @@ $(function(){
     })
   })
 
+
+
+  function addDeleteUser(name, id) {
+    let html = `
+    <div class="chat-group-user clearfix" id="${id}">
+      <p class="chat-group-user__name">${name}</p>
+      <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+    </div>`;
+    $(".js-chat-member").append(html);
+  }
+  function addMember(userId) {
+    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    $(`#${userId}`).append(html);
+  }
+
+  $(document).on('click', ".chat-group-user__btn--add" , function(){
+    //console.log()でイベント発火の有無を確認しましょう
+    console.log(this)
+    const userName = $(this).attr("data-user-name");
+    const userId = $(this).attr("data-user-id");
+    $(this).parent().remove();
+    console.log(userId);
+    addDeleteUser(userName, userId);
+    addMember(userId);
+    
+  });
+
+  $(document).on("click", ".chat-group-user__btn--remove", function() {
+    $(this).parent().remove();
+  });
 
 
 });
