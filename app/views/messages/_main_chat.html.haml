@@ -15,7 +15,7 @@
   //中央部 チャット履歴一覧
   .wrapper__chat-main__content
     - @messages.each do |message|
-      .wrapper__chat-main__content__message
+      .wrapper__chat-main__content__message{data: {message: {id: message.id}}}
         .wrapper__chat-main__content__message__info
           .wrapper__chat-main__content__message__info__contributor
             = message.user.nickname

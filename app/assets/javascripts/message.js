@@ -1,6 +1,11 @@
 $(function(){
+
+  var last_message_id = $('.wrapper__chat-main__content__message:last').data("message-id");
+  console.log(last_message_id);
+
   function buildHTML(message) {
-     if (message.image) {
+    
+    if (message.image) {
       var html =
         ` <div class="wrapper__chat-main__content__message" > 
             <div class="wrapper__chat-main__content__message__info">
