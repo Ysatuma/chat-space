@@ -3,7 +3,6 @@ $(function(){
   //最新の投稿メッセージのidを送信する
   var reloadMessages = function() {
     var last_message_id = $('.wrapper__chat-main__content__message:last').data("message-id");
-    console.log(last_message_id)
     $.ajax({
       url: "api/messages/",
       type: 'GET',
