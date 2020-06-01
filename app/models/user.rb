@@ -8,4 +8,10 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :messages
   validates :nickname, presence: true, uniqueness: true
+
+  def self.search(search,id)
+    return nil unless search
+    User.where(['nickname LIKE(?)', "%#{search}%"] ).where.not(id: id).limit(10)
+  end  
+
 end
