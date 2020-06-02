@@ -31,7 +31,7 @@
     .wrapper__chat-main__message-form__content
       = form_for [@group, @message], html: { class: "wrapper__chat-main__message-form__content__form"}   do |form|
         .wrapper__chat-main__message-form__content__form__inputs
-          = form.text_field  :content, class: "wrapper__chat-main__message-form__content__form__inputs__text"
+          = form.text_field  :content, class: "wrapper__chat-main__message-form__content__form__inputs__text", placeholder: "type a message"
           = form.label :image, class: "wrapper__chat-main__message-form__content__form__inputs__image" do
             = form.file_field :image, class: "wrapper__chat-main__message-form__content__form__inputs__image__icon"
             = icon('far', 'image') 
